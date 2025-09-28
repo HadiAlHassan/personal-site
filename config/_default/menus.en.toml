@@ -1,0 +1,25 @@
+[[main]]
+none = "none"
+
+[[main]]
+name = "Blog"
+pre = "envelope"
+pageRef = "Blog"
+identifier = "dLA2xgPFlp"
+weight = 1
+
+[[main]]
+name = "About"
+pageRef = "About"
+identifier = "u7sEzFHcMC"
+weight = 3
+
+[[main]]
+name = "Bookshelf"
+pre = "apple"
+pageRef = "Book Shelf"
+identifier = "va3bga8LoB"
+weight = 2
+
+[[footer]]
+none = "none"
