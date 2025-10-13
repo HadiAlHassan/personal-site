@@ -16,10 +16,22 @@ weight = 3
 
 [[main]]
 name = "Bookshelf"
-pre = "apple"
 pageRef = "Book Shelf"
 identifier = "va3bga8LoB"
 weight = 2
 
 [[footer]]
 none = "none"
+
+[[footer]]
+name = "Linkedin"
+pre = "linkedin"
+url = "https://www.linkedin.com/in/hadi-al-hassan-25012518a/"
+identifier = "PasXWqqcJA"
+weight = 9_999
+
+[[footer]]
+name = "Github"
+pre = "Github"
+url = "https://github.com/HadiAlHassan"
+weight = "2"
