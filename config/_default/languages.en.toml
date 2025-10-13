@@ -9,7 +9,3 @@ displayName = "EN"
 isoCode = "en"
 rtl = false
 dateFormat = "2 January 2006"
-
-["params.author"]
-name = "Hadi Al Hassan"
-bio = "Dedicated, Curious Individual that enjoys eating, sleeping, and losing hairline because of JavaScript."

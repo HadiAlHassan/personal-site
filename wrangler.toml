@@ -3,6 +3,11 @@ account_id = "d5e85419ead2ddaf4385090f7be422a1"
 compatibility_date = "2025-07-31"
 workers_dev = false
 
+routes = [
+  { pattern = "hadialhassan.dev/*", zone_name = "hadialhassan.dev" },
+  { pattern = "www.hadialhassan.dev/*", zone_name = "hadialhassan.dev" }
+]
+
 [build]
 command = "chmod a+x build.sh && ./build.sh"
 
@@ -10,7 +15,3 @@ command = "chmod a+x build.sh && ./build.sh"
 directory = "./public"
 not_found_handling = "404-page"
 
-routes = [
-  { pattern = "hadialhassan.dev/*", zone_name = "hadialhassan.dev" },
-  { pattern = "www.hadialhassan.dev/*", zone_name = "hadialhassan.dev" }
-]
