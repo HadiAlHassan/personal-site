@@ -1,4 +1,5 @@
 name = "hosting-cloudflare-worker"
+account_id = "${CF_ACCOUNT_ID}"
 compatibility_date = "2025-07-31"
 workers_dev = false
 
