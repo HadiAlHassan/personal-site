@@ -1,5 +1,6 @@
 name = "hosting-cloudflare-worker"
 compatibility_date = "2025-07-31"
+workers_dev = false
 
 [build]
 command = "chmod a+x build.sh && ./build.sh"
@@ -7,3 +8,8 @@ command = "chmod a+x build.sh && ./build.sh"
 [assets]
 directory = "./public"
 not_found_handling = "404-page"
+
+routes = [
+  { pattern = "hadialhassan.dev/*", zone_name = "hadialhassan.dev" },
+  { pattern = "www.hadialhassan.dev/*", zone_name = "hadialhassan.dev" }
+]
