@@ -53,9 +53,7 @@ But I still suffer from an overreliance on coding agents like cursor and chatGPT
 
 Sometimes I would copy paste code from cursor because *I did not understand the codebase enough to know if the code I am pasting belongs there*, or if what I am writing makes any sense.
 
-And thankfully, this habit was nipped in the bud before it caused issues in the codebase.
-
-But it got me thinking, **I am still weak at programming**.
+It got me thinking, **I am still weak at programming**.
 
 ---
 
