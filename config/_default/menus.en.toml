@@ -3,21 +3,39 @@ none = "none"
 
 [[main]]
 name = "Blog"
-pre = "envelope"
 pageRef = "Blog"
-identifier = "dLA2xgPFlp"
+identifier = "Blog"
 weight = 1
 
 [[main]]
 name = "About"
-pageRef = "About"
-identifier = "u7sEzFHcMC"
+pageRef = "About/_index"
+identifier = "ABOUT"
 weight = 3
 
 [[main]]
+name = "Me"
+pageRef = "About/AboutMe"
+parent = "ABOUT"
+weight = 1
+
+[[main]]
+name = "The Blog"
+pageRef = "About/AboutBlog"
+parent = "ABOUT"
+weight = 2
+
+[[main]]
+name = "My Career"
+pageRef = "About/AboutCareer"
+parent = "ABOUT"
+weight = 3
+
+
+[[main]]
 name = "Bookshelf"
-pageRef = "Book Shelf"
-identifier = "va3bga8LoB"
+pageRef = "bookshelf"
+identifier = "Bookshelf"
 weight = 2
 
 [[footer]]

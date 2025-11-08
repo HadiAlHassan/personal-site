@@ -9,3 +9,14 @@ displayName = "EN"
 isoCode = "en"
 rtl = false
 dateFormat = "2 January 2006"
+
+[params.author]
+name = "Hadi Al Hassan"
+email = "hadiwalhassan@gmail.com"
+headline = "Software Engineer - Life-Long Learner - Tenacious Problem Solver"
+bio = "Documenting my career in tech."
+links = [
+  { linkedin = "https://www.linkedin.com/in/hadi-al-hassan-25012518a/" },
+  { github = "https://github.com/HadiAlHassan" },
+  { email = "mailto:hadiwalhassan@gmail.com" }
+]
