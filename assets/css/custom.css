@@ -1,0 +1,158 @@
+/* === QX THEME TOKENS === */
+.qx{
+  --qx-bg:        #fafafa;   /* light card bg      */
+  --qx-border:    #e5e7eb;   /* light border       */
+  --qx-text:      #0f172a;   /* light text         */
+  --qx-sep:       #e5e7eb;   /* light dashed line  */
+  --qx-quote-bar: #cbd5e1;   /* light left rule    */
+  --qx-accent:    #334155;   /* optional accent    */
+}
+
+html.dark .qx{
+  --qx-bg:        #0f172a;   /* dark card bg       */
+  --qx-border:    #334155;   /* dark border        */
+  --qx-text:      #e5e7eb;   /* dark text          */
+  --qx-sep:       #334155;   /* dark dashed line   */
+  --qx-quote-bar: #475569;   /* dark left rule     */
+  --qx-accent:    #94a3b8;   /* optional accent    */
+}
+
+/* === Apply tokens === */
+.qx{
+  background-color: var(--qx-bg) !important;
+  border-color:     var(--qx-border) !important;
+  color:            var(--qx-text);
+}
+
+/* summary behaves like a full-width block; kill markers */
+details.qx > summary.qx-head { display:block; list-style:none; cursor:pointer; padding-left:0; margin:0; width:100%; }
+details.qx > summary.qx-head::marker { content:""; }
+details.qx > summary.qx-head::-webkit-details-marker { display:none; }
+
+/* make the phrasing wrappers act like blocks + padding */
+.qx .qx-pad { display:block; padding: .75rem 1rem; }         /* py-3 px-4 */
+.qx .qx-quote { display:block; border-left:4px solid var(--qx-quote-bar); padding-left:1rem; font-style:italic; }
+.qx .qx-body .qx-pad { border-top:1px dashed var(--qx-sep); }
+
+/* tidy paragraphs inside rendered quote html */
+.qx .qx-quote p { margin:0; }
+
+/* === BOOKSHELF THEME TOKENS === */
+.bs{
+  --bs-bg:        #f5eee6;   /* light wood */
+  --bs-border:    #6b4f3b;   /* bookshelf brown */
+  --bs-text:      #2b211a;
+  --bs-sep:       #cab9a9;
+  --bs-badge-fg:  #fff;
+
+  /* cover size (tweak if you want) */
+  --bs-cover:     5rem;      /* 80px */
+  --bs-radius:    0.5rem;
+  --bs-gap:       0.875rem;
+}
+
+html.dark .bs{
+  --bs-bg:        #2e2320;   /* darker wood */
+  --bs-border:    #8a6b57;
+  --bs-text:      #efe9e4;
+  --bs-sep:       #6f594c;
+  --bs-badge-fg:  #111;
+}
+
+/* Apply tokens */
+.bs{
+  background-color: var(--bs-bg);
+  border: 1.5px solid var(--bs-border);
+  color: var(--bs-text);
+}
+
+/* Summary = full-width block, remove default marker */
+.bs > summary.bs-head{ display:block; list-style:none; cursor:pointer; padding-left:0; margin:0; width:100%; }
+.bs > summary.bs-head::marker{ content:""; }
+.bs > summary.bs-head::-webkit-details-marker{ display:none; }
+
+/* Shared padding */
+.bs .bs-pad{ display:block; padding: .75rem 1rem; } /* py-3 px-4 */
+
+/* Fix the flex alignment */
+.bs .bs-row {
+  display: flex;
+  gap: var(--bs-gap);
+  align-items: flex-start; /* was center — that added top padding illusion */
+}
+
+/* Cover box */
+.bs .bs-cover {
+  aspect-ratio: 2 / 3;         /* portrait */
+  width: 5.5rem;
+  flex: 0 0 auto;
+  overflow: hidden;
+  border-radius: var(--bs-radius);
+  border: 1px solid color-mix(in srgb, var(--bs-border) 35%, transparent);
+  box-shadow: 0 1px 2px rgba(0,0,0,.06);
+  position: relative;
+  display: flex;
+  justify-content: center;     /* center horizontally */
+  align-items: flex-start;     /* align image to top, no gap above */
+}
+
+/* Cover image */
+.bs .bs-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;         /* full cover visible */
+  object-position: top center; /* anchor to top edge */
+  display: block;
+  border-radius: inherit;
+}
+
+/* Meta (title + sub + badge) */
+.bs .bs-meta{ display:flex; flex-direction:column; gap:.35rem; min-width: 0; }
+.bs .bs-title{ font-weight: 700; line-height:1.2; }
+.bs .bs-title .bs-sub{ font-weight: 500; opacity:.7; margin-left:.35rem; }
+
+/* Status badge (color by data-status) */
+.bs .bs-badge{
+  align-self:flex-start;
+  font-size:.75rem;
+  line-height:1;
+  padding:.35rem .5rem;
+  border-radius: 3px;
+  border:1px solid color-mix(in srgb, var(--bs-border) 35%, transparent);
+}
+
+/* Badge palettes */
+.bs .bs-badge[data-status="read"]{
+  background:#3b7a57; color: #fff;            /* deep green */
+}
+.bs .bs-badge[data-status="reading"],
+.bs .bs-badge[data-status="in progress"]{
+  background:#b7791f; color: #fff;            /* warm amber */
+}
+.bs .bs-badge[data-status="not read"]{
+  background:#6b7280; color:#fff;             /* neutral */
+}
+.bs .bs-badge[data-status="wishlist"]{
+  background:#855e42; color:#fff;             /* leather brown */
+}
+.bs .bs-badge[data-status="abandoned"]{
+  background:#8b1e1e; color:#fff;             /* red-brown */
+}
+.bs .bs-badge[data-status="on hold"]{
+  background:#a16207; color:#fff;             /* mustard */
+}
+
+/* Body: dashed separator that aligns with padding */
+.bs .bs-body .bs-pad{
+  border-top: 1px dashed var(--bs-sep);
+}
+
+/* Tight paragraphs inside body */
+.bs .bs-body p:first-child{ margin-top:0; }
+.bs .bs-body p:last-child{ margin-bottom:0; }
+
+/* Responsive nicety: shrink cover on small screens */
+@media (max-width: 480px){
+  .bs{ --bs-cover: 4rem; }
+}
+

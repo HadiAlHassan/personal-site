@@ -8,10 +8,16 @@ identifier = "Blog"
 weight = 1
 
 [[main]]
+name = "Quotes"
+pageRef = "quotes"
+identifier = "quotes"
+weight = 2
+
+[[main]]
 name = "About"
 pageRef = "About/_index"
 identifier = "ABOUT"
-weight = 3
+weight = 4
 
 [[main]]
 name = "Me"

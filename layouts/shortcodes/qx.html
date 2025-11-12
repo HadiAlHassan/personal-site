@@ -1,0 +1,33 @@
+{{/* layouts/shortcodes/qx.html (summary-safe) */}}
+
+{{- if .IsNamedParams -}}
+  {{- $.Scratch.Set "open" (eq (.Get "open") "true") -}}
+{{- else -}}
+  {{- $.Scratch.Set "open" (eq (default "false" (.Get 0)) "true") -}}
+{{- end -}}
+{{- $open := $.Scratch.Get "open" -}}
+
+{{- $parts := split .Inner "\n---\n" -}}
+{{- $quoteMD := index $parts 0 -}}
+{{- $expMD   := cond (ge (len $parts) 2) (index $parts 1) "" -}}
+
+{{- $quoteHTML := $quoteMD | markdownify -}}
+{{- $quoteInner := $quoteHTML | replaceRE `(?s)^\s*<blockquote>(.*)</blockquote>\s*$` `$1` -}}
+
+<details class="qx my-4 rounded-lg overflow-hidden" {{ if $open }}open{{ end }}>
+  <summary class="qx-head">
+    <span class="qx-pad">
+      <span class="qx-quote">
+        {{- $quoteInner | safeHTML -}}
+      </span>
+    </span>
+  </summary>
+
+  {{- if $expMD -}}
+  <div class="qx-body">
+    <div class="qx-pad">
+      {{- $expMD | markdownify -}}
+    </div>
+  </div>
+  {{- end -}}
+</details>

@@ -1,0 +1,63 @@
+{{/* bookshelfitem: cover + title + status badge + expandable notes
+    Usage:
+    {{% bookshelfitem
+        title="The Pragmatic Programmer"
+        status="Read"          # Read | Reading | Not Read | Wishlist | Abandoned | On Hold
+        img="/images/books/pragmatic.jpg"
+        alt="The Pragmatic Programmer cover"
+        author="Andrew Hunt, David Thomas"
+        year="1999"
+        open="false"
+    %}}
+    Your notes / review here in Markdown.
+    {{% /bookshelfitem %}}
+    */}}
+    
+    {{- $title  := .Get "title"   | default "" -}}
+    {{- $status := .Get "status"  | default "Read" -}}
+    {{- $img    := .Get "img"     | default "" -}}
+    {{- $alt    := .Get "alt"     | default $title -}}
+    {{- $author := .Get "author"  | default "" -}}
+    {{- $year   := .Get "year"    | default "" -}}
+    {{- $open   := eq (.Get "open") "true" -}}
+    {{- $body   := .Inner -}}
+    
+    <details class="bs my-4 rounded-lg overflow-hidden" {{ if $open }}open{{ end }}>
+      <summary class="bs-head">
+        <span class="bs-pad">
+          <span class="bs-row">
+            {{- if $img -}}
+            <span class="bs-cover">
+              <img src="{{ $img }}" alt="{{ $alt }}">
+            </span>
+            {{- end -}}
+    
+            <span class="bs-meta">
+              <span class="bs-title">
+                {{- $title -}}
+                {{- if or $author $year -}}
+                  <span class="bs-sub">
+                    {{- with $author -}}{{ . }}{{ end -}}
+                    {{- if and $author $year -}}, {{ end -}}
+                    {{- with $year -}}{{ . }}{{ end -}}
+                  </span>
+                {{- end -}}
+              </span>
+    
+              <span class="bs-badge" data-status="{{ lower $status }}">
+                {{- $status -}}
+              </span>
+            </span>
+          </span>
+        </span>
+      </summary>
+    
+      {{- if $body -}}
+      <div class="bs-body">
+        <div class="bs-pad">
+          {{- $body | markdownify -}}
+        </div>
+      </div>
+      {{- end -}}
+    </details>
+    
