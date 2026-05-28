@@ -1,0 +1,47 @@
+{{/* layouts/shortcodes/accordion.html */}}
+
+{{/* Parameter handling (named or positional) */}}
+{{ if .IsNamedParams }}
+  {{ $.Scratch.Set "title"     (default "Details" (.Get "title")) }}
+  {{ $.Scratch.Set "open"      (eq (.Get "open") "true") }}
+  {{ $.Scratch.Set "icon"      (.Get "icon") }}
+  {{ $.Scratch.Set "cardColor" (.Get "cardColor") }}
+  {{ $.Scratch.Set "iconColor" (.Get "iconColor") }}
+  {{ $.Scratch.Set "textColor" (.Get "textColor") }}
+{{ else }}
+  {{/* Positional: 0=title, 1=open ("true"/"false"), 2=icon */}}
+  {{ $.Scratch.Set "title" (default "Details" (.Get 0)) }}
+  {{ $.Scratch.Set "open"  (eq (default "false" (.Get 1)) "true") }}
+  {{ $.Scratch.Set "icon"  (.Get 2) }}
+{{ end }}
+
+{{ $title     := $.Scratch.Get "title" }}
+{{ $open      := $.Scratch.Get "open" }}
+{{ $icon      := $.Scratch.Get "icon" }}
+{{ $cardColor := $.Scratch.Get "cardColor" }}
+{{ $iconColor := $.Scratch.Get "iconColor" }}
+{{ $textColor := $.Scratch.Get "textColor" }}
+
+<details
+  {{ if not $cardColor }}
+    class="rounded-md border border-zinc-900 dark:border-zinc-900"
+  {{ else }}
+    class="rounded-md border" style="background-color: {{ $cardColor }}"
+  {{ end }}
+  {{ if $open }} open{{ end }}
+>
+  <summary class="cursor-pointer select-none flex items-center p-10 2-5">
+    {{ if $icon }}
+      <span {{ if not $iconColor }}class="flex items-center"{{ else }}class="flex items-center" style="color: {{ $iconColor }}"{{ end }}>
+        {{ partial "icon.html" $icon }}
+      </span>
+    {{ end }}
+    <span {{ if $textColor }}style="color: {{ $textColor }}"{{ end }}>
+      {{ $title }}
+    </span>
+  </summary>
+
+  <div class="px-6 pb-6">
+    {{ .Inner | markdownify }}
+  </div>
+</details>
