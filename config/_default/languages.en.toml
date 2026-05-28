@@ -18,5 +18,5 @@ bio = "Documenting my career in tech."
 links = [
   { linkedin = "https://www.linkedin.com/in/hadi-al-hassan-25012518a/" },
   { github = "https://github.com/HadiAlHassan" },
-  { email = "mailto:hadiwalhassan@gmail.com" }
+  { email = "mailto:mailing@hadialhassan.dev" }
 ]
