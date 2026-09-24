@@ -8,6 +8,12 @@ identifier = "Blog"
 weight = 1
 
 [[main]]
+name = "Packages"
+url = "https://packages.hadialhassan.dev/"
+identifier = "Packages"
+weight = 1
+
+[[main]]
 name = "Quotes"
 pageRef = "quotes"
 identifier = "quotes"
